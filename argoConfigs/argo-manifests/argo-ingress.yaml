@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "cloudflare-issuer"
+  namespace: argocd
+spec:
+  rules:
+    - host: argo.reylabs.dev
+      http:
+        paths:
+          - backend:
+              service:
+                port:
+                  number: 443
+                name: argocd-server
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - argo.reylabs.dev
+      secretName: argocd-server-http-tls
+  ingressClassName: nginx
