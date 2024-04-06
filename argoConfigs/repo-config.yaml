@@ -12,18 +12,18 @@ stringData:
 
 ---
 apiVersion: v1
+data:
+  password: Z2l0aHViX3BhdF8xMUFCTlRUM1kwMkRDRTh1TWczcVc5X2xHU3JMYmxsWExaS2NLNDNxaEJ6aThNQjYwQ1EwVGlqblUwTTlrVkFGSTlUQzU2SlRUUWczRWhsWjJV
+  type: Z2l0
+  url: aHR0cHM6Ly9naXRodWIuY29tL3JleWxhYnMvcmxhYnMtYXJnby1rM3MtbWFuaWZlc3Rz
+  username: cm9saW5kLnJveQ==
 kind: Secret
 metadata:
-  name: private-repo-creds
-  namespace: argocd
   labels:
     argocd.argoproj.io/secret-type: repo-creds
-stringData:
-  type: git
-  url: https://github.com/reylabs/rlabs-argo-k3s-manifests
-  password: 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
-  username: rolind.roy
-
+  name: private-repo-creds
+  namespace: argocd
+type: Opaque
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
