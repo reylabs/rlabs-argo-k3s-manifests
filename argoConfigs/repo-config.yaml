@@ -13,7 +13,7 @@ stringData:
 ---
 apiVersion: v1
 data:
-  password: Z2l0aHViX3BhdF8xMUFCTlRUM1kwMkRDRTh1TWczcVc5X2xHU3JMYmxsWExaS2NLNDNxaEJ6aThNQjYwQ1EwVGlqblUwTTlrVkFGSTlUQzU2SlRUUWczRWhsWjJV
+  password: Z2hwX1ZOdWJCU0dtcmZObk5wbUlFdmxGbW96U0RSa1dNdDIwNFptMg==
   type: Z2l0
   url: aHR0cHM6Ly9naXRodWIuY29tL3JleWxhYnMvcmxhYnMtYXJnby1rM3MtbWFuaWZlc3Rz
   username: cm9saW5kLnJveQ==
