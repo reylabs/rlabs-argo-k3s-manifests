@@ -11,7 +11,7 @@ spec:
     path: argoConfigs/argo-manifests
     repoURL: 'https://github.com/reylabs/rlabs-argo-k3s-manifests.git'
     targetRevision: HEAD
-  project: argocd
+  project: rlabs-infra
   syncPolicy:
     automated: 
       prune: true

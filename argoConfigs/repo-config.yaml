@@ -13,10 +13,10 @@ stringData:
 ---
 apiVersion: v1
 data:
-  password: Z2hwX1ZOdWJCU0dtcmZObk5wbUlFdmxGbW96U0RSa1dNdDIwNFptMg==
+  password: Z2hwX05Qc0ZHamc1czhuU1JkcTI0cFJjeUxscnVlUUM2MjBxdkhhdgo=
   type: Z2l0
   url: aHR0cHM6Ly9naXRodWIuY29tL3JleWxhYnMvcmxhYnMtYXJnby1rM3MtbWFuaWZlc3Rz
-  username: cm9saW5kLnJveQ==
+  username: cm9saW5kcm95Cg==
 kind: Secret
 metadata:
   labels:
