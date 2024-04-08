@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: longhorn-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "cloudflare-issuer"
+  namespace: longhorn-system
+spec:
+  rules:
+    - host: longhorn.reylabs.dev
+      http:
+        paths:
+          - backend:
+              service:
+                port:
+                  number: 80
+                name: longhorn-frontend
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - longhorn.reylabs.dev
+      secretName: longhorn-server-http-tls
+  ingressClassName: nginx
