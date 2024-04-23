@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: rpi-exporter
+  namespace: monitoring
+  labels:
+    k8s-app: rpi-exporter
+spec:
+  selector:
+    matchLabels:
+      name: rpi-exporter
+  template:
+    metadata:
+      labels:
+        name: rpi-exporter
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: rpi-exporter
+        image: docker.io/rolindroy/rpi_exporter:1.3
+        resources:
+          limits:
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
+      hostNetwork: true
+      hostPID: true
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+      serviceAccountName: node-exporter
+      volumes:
+      - hostPath:
+          path: /dev
+        name: dev
+      # - hostPath:
+      #     path: /
+      #   name: root
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: rpi-exporter
+  name: rpi-exporter
+  namespace: monitoring
+spec:
+  ports:
+  - name: https
+    port: 9110
+    targetPort: https
+  selector:
+    app.kubernetes.io/name: rpi-exporter
